@@ -18,10 +18,10 @@ class TipohabController extends Controller
     {
         if ($request) {
             $query = trim($request->get('searchText'));
-            $tiposhabitaion = DB::table('tipodehabitacion') - Where('nombredeltipo', 'LIKE', '%' . $query . '%')
+            $tiposhabitacion = DB::table('tipodehabitacion') ->Where('nombredeltipo', 'LIKE', '%' . $query . '%')
                 ->orderBy('id_tipodehabitacion', 'desc')
                 ->paginate(10);
-            return view('Sistema.tipodehabitacion.index', ["tiposhabitacion" => $tiposhabitaion, "searchText" => $query]);
+            return view('Sistema.tipodehabitacion.index', ["tiposhabitacion" => $tiposhabitacion, "searchText" => $query]);
         }
     }
     public function create()
