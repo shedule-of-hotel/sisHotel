@@ -1,4 +1,4 @@
 @extends('layouts.admin')
 @section ('contenido')
-    <h3>index</h3>
+    <h3>update</h3>
 @endsection
