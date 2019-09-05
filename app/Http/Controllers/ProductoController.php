@@ -11,7 +11,7 @@ use AguaymantoHotel\Http\Requests\ProductoFormRequest;//hacemos referencia a For
 use DB;//usar la base de datos
 
 
-class ProductocoControllerr extends Controller
+class ProductoController extends Controller
 {
     public function __constructor() //creamos el constructor
     {
@@ -21,16 +21,16 @@ class ProductocoControllerr extends Controller
     {
         if($request)
         {
-            $query=trimp($request->get('searchText'));
+            $query=trim($request->get('searchText'));
             $productos=DB::table('producto')->where('nombre_producto','LIKE','%'.$query.'%')
             ->orderBy ('id_producto','desc')
             ->paginate(7);
-            return view('almacen.producto.index',["productos"=>$productos,"searchText"=>$query]);
+            return view('Sistema.Producto.index',["productos"=>$productos,"searchText"=>$query]);
         }
     }
     public function create()//Funcion para Crear en BD
     {
-        return view('almacen.producto.create');
+        return view('Sistema.Producto.create');
     }
     public function store(ProductoFormRequest $request)//funcion para almacenar en BD
     {
@@ -40,15 +40,15 @@ class ProductocoControllerr extends Controller
         $producto->stock=$request->get('stock');
         $producto->precio_venta=$request->get('precio_venta');
         $producto->save();
-        return Redirect::to('almacen/producto');
+        return Redirect::to('Sistema/Producto');
     }
     public function show($id)//funcion para mostrar
     {
-        return view("almacen.producto.show",["producto"=>Producto::findOrFail($id)]);
+        return view("Sistema.Producto.show",["producto"=>Producto::findOrFail($id)]);
     }
     public function edit($id)//funcion para editar
     {
-        return view("almacen.producto.edit",["producto"=>Producto::findOrFail($id)]);
+        return view("Sistema.Producto.edit",["producto"=>Producto::findOrFail($id)]);
     }
     public function update(ProductoFormRequest $request,$id)// funcion para actualizar
     {
@@ -58,7 +58,7 @@ class ProductocoControllerr extends Controller
         $producto->stock=$request->get(stock);
         $producto->precio_venta=$request->get(precio_venta);
         $producto->update();
-        return Redirect::to('almacen/producto');
+        return Redirect::to('Sistema/Producto');
 
     }
     public function destroid($id)//para eliminar un objeto
@@ -66,6 +66,6 @@ class ProductocoControllerr extends Controller
         $producto=Producto::findOrFail($id);
         $producto->condicion='0';
         $producto->update();
-        return Redirect::to('almacen/producto');
+        return Redirect::to('Sistema/Producto');
     }
 }
