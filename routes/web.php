@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 Route::resource('producto', 'ProductoController');
 Route::resource('tipohabitacion', 'tipohabController');
+//Route::resourece crea una ruta para index,update,destroid ,etc .... cosas simples
+Route::resource('producto', 'ProductoController');
