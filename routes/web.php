@@ -14,4 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//Route::resourece crea una ruta para index,update,destroid ,etc .... cosas simples
 Route::resource('producto','ProductoController');
