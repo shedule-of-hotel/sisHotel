@@ -21,12 +21,12 @@ class TipohabController extends Controller
             $tiposhabitaion = DB::table('tipodehabitacion') - Where('nombredeltipo', 'LIKE', '%' . $query . '%')
                 ->orderBy('id_tipodehabitacion', 'desc')
                 ->paginate(10);
-            return view('tipodehabitacion.index', ["tiposhabitacion" => $tiposhabitaion, "searchText" => $query]);
+            return view('Sistema.tipodehabitacion.index', ["tiposhabitacion" => $tiposhabitaion, "searchText" => $query]);
         }
     }
     public function create()
     {
-        return view("tipodehabitacion.create");
+        return view("Sistema.tipodehabitacion.create");
     }
     public function store(TipohabFormRequest $request)
     {
@@ -35,15 +35,15 @@ class TipohabController extends Controller
         $tipohabit->descripcion_caracteristicas = $request->get('descripcion_caracteristicas');
         $tipohabit->precio_habitacion = $request->get('precio_habitacion');
         $tipohabit->save();
-        return Redirect::to('tipodehabitacion');
+        return Redirect::to('Sistema/tipodehabitacion');
     }
     public function show($id_tipodehabitacion)
     {
-        return view("tipodehabitacion.show", ["tipodehabitacion" => Tipohabitacion::findOrFail($id_tipodehabitacion)]);
+        return view("Sistema/tipodehabitacion.show", ["tipodehabitacion" => Tipohabitacion::findOrFail($id_tipodehabitacion)]);
     }
     public function edit($id_tipodehabitacion)
     {
-        return view("tipodehabitacion.show", ["tipodehabitacion" => Tipohabitacion::findOrFail($id_tipodehabitacion)]);
+        return view("Sistema/tipodehabitacion.show", ["tipodehabitacion" => Tipohabitacion::findOrFail($id_tipodehabitacion)]);
     }
     public function update(TipohabFormRequest $request, $id_tipodehabitacion)
     {
@@ -52,7 +52,7 @@ class TipohabController extends Controller
         $tipohabit->descripcion_caracteristicas = $request->get('descripcion_caracteristicas');
         $tipohabit->precio_habitacion = $request->get('precio_habitacion');
         $tipohabit->update();
-        return Redirect::to('tipodehabitacion');
+        return Redirect::to('Sistema/tipodehabitacion');
     }
     public function destroy()
     { }
