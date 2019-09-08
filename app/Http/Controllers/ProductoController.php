@@ -40,7 +40,7 @@ class ProductoController extends Controller
         $producto->stock=$request->get('stock');
         $producto->precio_venta=$request->get('precio_venta');
         $producto->save();
-        return Redirect::to('Sistema/Producto');
+        return Redirect('producto');
     }
     public function show($id)//funcion para mostrar
     {
@@ -53,12 +53,8 @@ class ProductoController extends Controller
     public function update(ProductoFormRequest $request,$id)// funcion para actualizar
     {
         $producto=Producto::findOrFail($id);
-        $producto->nombre_producto=$request->get(nombre_producto);
-        $producto->descripcion=$request->get(descripcion);
-        $producto->stock=$request->get(stock);
-        $producto->precio_venta=$request->get(precio_venta);
-        $producto->update();
-        return Redirect::to('Sistema/Producto');
+        $producto->update($request->all());
+        return Redirect('producto');
 
     }
     public function destroid($id)//para eliminar un objeto

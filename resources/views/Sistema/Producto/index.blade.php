@@ -2,7 +2,7 @@
 @section ('contenido')
 <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-        <h3>Listado de Productos<a href="producto/create"><button>Nuevo</button></a></h3>
+        <h3>Listado de Productos<a href="producto/create"><button class="btn btn-success">Nuevo</button></a></h3>
         @include('sistema.producto.search')
     </div>
 </div> 
@@ -23,11 +23,11 @@
                     <tr>
                         <td>{{ $pro->id_producto}}</td>
                         <td>{{ $pro->nombre_producto}}</td>
-                        <td>{{ $pro->desripcion}}</td>
+                        <td>{{ $pro->descripcion}}</td>
                         <td>{{ $pro->stock}}</td>
                         <td>{{ $pro->precio_venta}}</td>
                         <td>
-                        <a href=""><button class="btn btn-info">Editar</button></a>
+                        <a href="{{URL::action('ProductoController@edit',$pro->id_producto)}}"><button class="btn btn-info">Editar</button></a>
                         <a href=""><button class="btn btn-danger">Eliminar</button></a>
                         </td>
                     </tr>
