@@ -18,15 +18,15 @@ class TipohabController extends Controller
     {
         if ($request) {
             $query = trim($request->get('searchText'));
-            $tiposhabitacion = DB::table('tipodehabitacion') ->Where('nombredeltipo', 'LIKE', '%' . $query . '%')
+            $tiposhabitacion = DB::table('tipodehabitacion')->Where('nombredeltipo', 'LIKE', '%' . $query . '%')
                 ->orderBy('id_tipodehabitacion', 'desc')
                 ->paginate(10);
-            return view('Sistema.tipodehabitacion.index', ["tiposhabitacion" => $tiposhabitacion, "searchText" => $query]);
+            return view('Sistema.tipohabitacion.index', ["tiposhabitacion" => $tiposhabitacion, "searchText" => $query]);
         }
     }
     public function create()
     {
-        return view("Sistema.tipodehabitacion.create");
+        return view("Sistema.tipohabitacion.create");
     }
     public function store(TipohabFormRequest $request)
     {
@@ -35,15 +35,15 @@ class TipohabController extends Controller
         $tipohabit->descripcion_caracteristicas = $request->get('descripcion_caracteristicas');
         $tipohabit->precio_habitacion = $request->get('precio_habitacion');
         $tipohabit->save();
-        return Redirect::to('Sistema/tipodehabitacion');
+        return Redirect::to('Sistema/tipohabitacion');
     }
     public function show($id_tipodehabitacion)
     {
-        return view("Sistema/tipodehabitacion.show", ["tipodehabitacion" => Tipohabitacion::findOrFail($id_tipodehabitacion)]);
+        return view("Sistema/tipohabitacion.show", ["tipohabitacion" => Tipohabitacion::findOrFail($id_tipodehabitacion)]);
     }
     public function edit($id_tipodehabitacion)
     {
-        return view("Sistema/tipodehabitacion.show", ["tipodehabitacion" => Tipohabitacion::findOrFail($id_tipodehabitacion)]);
+        return view("Sistema/tipohabitacion.show", ["tipohabitacion" => Tipohabitacion::findOrFail($id_tipodehabitacion)]);
     }
     public function update(TipohabFormRequest $request, $id_tipodehabitacion)
     {
@@ -52,7 +52,7 @@ class TipohabController extends Controller
         $tipohabit->descripcion_caracteristicas = $request->get('descripcion_caracteristicas');
         $tipohabit->precio_habitacion = $request->get('precio_habitacion');
         $tipohabit->update();
-        return Redirect::to('Sistema/tipodehabitacion');
+        return Redirect::to('Sistema/tipohabitacion');
     }
     public function destroy()
     { }
