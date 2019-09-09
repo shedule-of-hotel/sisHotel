@@ -23,6 +23,7 @@ class ProductoController extends Controller
         {
             $query=trim($request->get('searchText'));
             $productos=DB::table('producto')->where('nombre_producto','LIKE','%'.$query.'%')
+            ->where ('eliminado','=','1')
             ->orderBy ('id_producto','desc')
             ->paginate(10);
             return view('Sistema.Producto.index',["productos"=>$productos,"searchText"=>$query]);
@@ -57,11 +58,11 @@ class ProductoController extends Controller
         return Redirect('producto');
 
     }
-    public function destroid($id)//para eliminar un objeto
+    public function destroy($id)//para eliminar un objeto
     {
         $producto=Producto::findOrFail($id);
-        $producto->condicion='0';
+        $producto->eliminado='0';
         $producto->update();
-        return Redirect::to('Sistema/Producto');
+        return Redirect('producto');
     }
 }

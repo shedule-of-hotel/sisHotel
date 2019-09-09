@@ -28,9 +28,10 @@
                         <td>{{ $pro->precio_venta}}</td>
                         <td>
                         <a href="{{URL::action('ProductoController@edit',$pro->id_producto)}}"><button class="btn btn-info">Editar</button></a>
-                        <a href=""><button class="btn btn-danger">Eliminar</button></a>
+                        <a href="" data-target="#modal-delete-{{$pro->id_producto}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
                         </td>
                     </tr>
+                    @include('Sistema.Producto.modal')
                 @endforeach
            </table> 
         </div>
