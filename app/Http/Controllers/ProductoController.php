@@ -23,6 +23,7 @@ class ProductoController extends Controller
         {
             $query=trim($request->get('searchText'));
             $productos=DB::table('producto')->where('nombre_producto','LIKE','%'.$query.'%')
+            ->where ('eliminado','=','1')
             ->orderBy ('id_producto','desc')
             ->paginate(10);
             return view('Sistema.Producto.index',["productos"=>$productos,"searchText"=>$query]);
@@ -40,7 +41,7 @@ class ProductoController extends Controller
         $producto->stock=$request->get('stock');
         $producto->precio_venta=$request->get('precio_venta');
         $producto->save();
-        return Redirect::to('Sistema/Producto');
+        return Redirect('producto');
     }
     public function show($id)//funcion para mostrar
     {
@@ -53,19 +54,15 @@ class ProductoController extends Controller
     public function update(ProductoFormRequest $request,$id)// funcion para actualizar
     {
         $producto=Producto::findOrFail($id);
-        $producto->nombre_producto=$request->get(nombre_producto);
-        $producto->descripcion=$request->get(descripcion);
-        $producto->stock=$request->get(stock);
-        $producto->precio_venta=$request->get(precio_venta);
-        $producto->update();
-        return Redirect::to('Sistema/Producto');
+        $producto->update($request->all());
+        return Redirect('producto');
 
     }
-    public function destroid($id)//para eliminar un objeto
+    public function destroy($id)//para eliminar un objeto
     {
         $producto=Producto::findOrFail($id);
-        $producto->condicion='0';
+        $producto->eliminado='0';
         $producto->update();
-        return Redirect::to('Sistema/Producto');
+        return Redirect('producto');
     }
 }
