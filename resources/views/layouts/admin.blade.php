@@ -114,9 +114,9 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{asset('/usuarios')}}"><i class="fa fa-circle-o"></i> Gestion de Usuarios</a></li>
-                <li><a href="{{asset('/Clientes')}}"><i class="fa fa-circle-o"></i> Gestion de Clientes</a></li>
-                <li><a href="{{asset('/empleados')}}"><i class="fa fa-circle-o"></i> Gestion de Empleados</a></li>
+                <li><a href="{{asset('/usuario')}}"><i class="fa fa-circle-o"></i> Gestion de Usuarios</a></li>
+                <li><a href="{{asset('/cliente')}}"><i class="fa fa-circle-o"></i> Gestion de Clientes</a></li>
+                <li><a href="{{asset('/empleado')}}"><i class="fa fa-circle-o"></i> Gestion de Empleados</a></li>
               </ul>
             </li>
             <li class="treeview">
