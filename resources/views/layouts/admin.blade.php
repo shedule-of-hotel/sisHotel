@@ -110,12 +110,13 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-shopping-cart"></i>
-                <span>Ventas</span>
+                <span>Usuarios</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="ventas/venta"><i class="fa fa-circle-o"></i> Comporvantes</a></li>
-                <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i> Facturacion</a></li>
+                <li><a href="{{asset('/usuario')}}"><i class="fa fa-circle-o"></i> Gestion de Usuarios</a></li>
+                <li><a href="{{asset('/cliente')}}"><i class="fa fa-circle-o"></i> Gestion de Clientes</a></li>
+                <li><a href="{{asset('/empleado')}}"><i class="fa fa-circle-o"></i> Gestion de Empleados</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -125,12 +126,8 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="./"><i class="fa fa-circle-o"></i> index Producto</a></li>
-                <li><a href="./create"><i class="fa fa-circle-o"></i> Crear Producto</a></li>
-                <li><a href="./show"><i class="fa fa-circle-o"></i> Mostrar Productos</a></li>
-                <li><a href="./update"><i class="fa fa-circle-o"></i> Actualizar Producto</a></li>
-                <li><a href="./store"><i class="fa fa-circle-o"></i> Store Producto</a></li>
-                <li><a href="./destroid"><i class="fa fa-circle-o"></i> Destroid Producto</a></li>
+                <li><a href="{{asset('/producto')}}"><i class="fa fa-circle-o"></i> Gestion de Producto</a></li>
+                <li><a href="{{asset('/compras')}}"><i class="fa fa-circle-o"></i> Gestion de Compras</a></li>
               </ul>
             </li>
                        
