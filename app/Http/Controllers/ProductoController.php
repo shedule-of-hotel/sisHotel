@@ -50,8 +50,8 @@ class ProductoController extends Controller
     }
     public function update(ProductoFormRequest $request, $id) // funcion para actualizar
     {
-        $producto = Producto::findOrFail($id);
-        $producto->update($request->all());
+        $produto = Producto::findOrFail($id);
+        $produto->update($request->all());
         return Redirect('producto');
     }
     public function destroy($id) //para eliminar un objeto
