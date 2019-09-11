@@ -25,10 +25,9 @@ class TipohabFormRequest extends FormRequest
     {
         return [
             //
-            'nombredetipo' => 'required|max:50',
-            'descripcion_caracteristicas' => 'max:250',
-            'precio_habitacion' => 'max:10',
-
+            'nombredeltipo' => 'required|max:50',
+            'descripcion_caracteristicas' => 'required|max:256',
+            'precio_habitacion' => 'required',
         ];
     }
 }

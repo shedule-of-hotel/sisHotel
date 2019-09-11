@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('producto', 'ProductoController');
-Route::resource('tipohabitacion', 'tipohabController');
+Route::resource('tipohabitacion', 'TipohabController');
 Route::resource('cliente', 'ClienteController');
 Route::resource('empleado', 'EmpleadoController');
 

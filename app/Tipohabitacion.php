@@ -8,12 +8,16 @@ class Tipohabitacion extends Model
 {
     //
     protected $table = 'tipodehabitacion';
-    protected $primaryKey = "id_tipodehabitacion";
 
-    protected $fillabe = [
+    protected $primaryKey = 'id_tipodehabitacion';
+
+    public $timestamps = false;
+
+    protected $fillable = [
         'nombredeltipo',
         'descripcion_caracteristicas',
-        'precio_habitacion'
+        'precio_habitacion',
     ];
+
     protected $guarded = [];
 }

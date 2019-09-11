@@ -3,57 +3,60 @@
 namespace AguaymantoHotel\Http\Controllers;
 
 use Illuminate\Http\Request;
-use AguaymantoHotel\http\Requests;
+use AguaymantoHotel\Http\Requests;
 use AguaymantoHotel\Tipohabitacion;
-use Illuminate\Support\Facades\Redirect;
-use AguaymantoHotel\http\Requests\TipohabFormRequest;
+use Illuminate\Support\facades\redirecf;
+use AguaymantoHotel\Http\Requests\TipohabFormRequest;
 use DB;
 
 class TipohabController extends Controller
 {
     //
-    public function __construct()
+    public function __constructor()
     { }
     public function index(Request $request)
     {
         if ($request) {
             $query = trim($request->get('searchText'));
-            $tiposhabitacion = DB::table('tipodehabitacion')->Where('nombredeltipo', 'LIKE', '%' . $query . '%')
-                ->orderBy('id_tipodehabitacion', 'desc')
+            $Tipos = DB::table('tipodehabitacion')->where('nombredeltipo', 'LIKE', '%' . $query . '%')
+                ->where('eliminado', '=', '1')
+                ->orderBy('id_tipodehabitacion', 'asc')
                 ->paginate(10);
-            return view('Sistema.tipohabitacion.index', ["tiposhabitacion" => $tiposhabitacion, "searchText" => $query]);
+            return view('Sistema.Tipohabitacion.index', ["Tipos" => $Tipos, "searchText" => $query]);
         }
     }
     public function create()
     {
-        return view("Sistema.tipohabitacion.create");
+        return view('Sistema.Tipohabitacion.create');
     }
     public function store(TipohabFormRequest $request)
     {
-        $tipohabit = new Tipohabitacion();
-        $tipohabit->nombredeltipo = $request->get('nombredeltipo');
-        $tipohabit->descripcion_caracteristicas = $request->get('descripcion_caracteristicas');
-        $tipohabit->precio_habitacion = $request->get('precio_habitacion');
-        $tipohabit->save();
-        return Redirect::to('Sistema/tipohabitacion');
+        $tipohabitacion = new Tipohabitacion();
+        $tipohabitacion->nombredeltipo = $request->get('nombredeltipo');
+        $tipohabitacion->descripcion_caracteristicas = $request->get('descripcion_caracteristicas');
+        $tipohabitacion->precio_habitacion = $request->get('precio_habitacion');
+        $tipohabitacion->save();
+        return Redirect('tipohabitacion');
     }
-    public function show($id_tipodehabitacion)
+    public function show($id)
     {
-        return view("Sistema/tipohabitacion.show", ["tipohabitacion" => Tipohabitacion::findOrFail($id_tipodehabitacion)]);
+        return view("Sistema.Tipohabitacion.show", ["tipohabitacion" => Tipohabitacion::findOrFail($id)]);
     }
-    public function edit($id_tipodehabitacion)
+    public function edit($id)
     {
-        return view("Sistema/tipohabitacion.show", ["tipohabitacion" => Tipohabitacion::findOrFail($id_tipodehabitacion)]);
+        return view("Sistema.Tipohabitacion.edit", ["tipohabitacion" => Tipohabitacion::findOrFail($id)]);
     }
-    public function update(TipohabFormRequest $request, $id_tipodehabitacion)
+    public function update(TipohabFormRequest $request, $id)
     {
-        $tipohabit = Tipohabitacion::findOrFail($id_tipodehabitacion);
-        $tipohabit->nombredeltipo = $request->get('nombredeltipo');
-        $tipohabit->descripcion_caracteristicas = $request->get('descripcion_caracteristicas');
-        $tipohabit->precio_habitacion = $request->get('precio_habitacion');
-        $tipohabit->update();
-        return Redirect::to('Sistema/tipohabitacion');
+        $tipohabitacion = Tipohabitacion::findOrFail($id);
+        $tipohabitacion->update($request->all());
+        return Redirect('tipohabitacion');
     }
-    public function destroy()
-    { }
+    public function destroy($id) //para eliminar un objeto
+    {
+        $tipohabitacion = Tipohabitacion::findOrFail($id);
+        $tipohabitacion->eliminado = '0';
+        $tipohabitacion->update();
+        return Redirect('tipohabitacion');
+    }
 }
