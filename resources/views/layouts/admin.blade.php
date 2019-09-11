@@ -91,8 +91,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="almacen/articulo"><i class="fa fa-circle-o"></i> Tipos de Habiracion</a></li>
-                <li><a href="almacen/categoria"><i class="fa fa-circle-o"></i> Habiraciones</a></li>
+                <li><a href="{{asset('/tipohabitacion')}}"><i class="fa fa-circle-o"></i> Tipos de Habiracion</a></li>
+                <li><a href="{{asset('/tipohabitacion')}}"><i class="fa fa-circle-o"></i> Habiraciones</a></li>
               </ul>
             </li>
             
@@ -103,8 +103,8 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="compras/ingreso"><i class="fa fa-circle-o"></i> Consumos de clientes</a></li>
-                <li><a href="compras/proveedor"><i class="fa fa-circle-o"></i> Reservas</a></li>
+                <li><a href="{{asset('/tipohabitacion')}}"><i class="fa fa-circle-o"></i> Consumos de clientes</a></li>
+                <li><a href="{{asset('/tipohabitacion')}}"><i class="fa fa-circle-o"></i> Reservas</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -114,7 +114,6 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{asset('/usuario')}}"><i class="fa fa-circle-o"></i> Gestion de Usuarios</a></li>
                 <li><a href="{{asset('/cliente')}}"><i class="fa fa-circle-o"></i> Gestion de Clientes</a></li>
                 <li><a href="{{asset('/empleado')}}"><i class="fa fa-circle-o"></i> Gestion de Empleados</a></li>
               </ul>

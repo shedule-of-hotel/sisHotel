@@ -15,18 +15,18 @@
         </div>
     </div>
 
-            {!!Form::model($humano,['method'=>'PATCH','route'=>['cliente.update',$humano->id_humano]])!!}
+            {!!Form::model($humano,['method'=>'PATCH','route'=>['empleado.update',$humano->id_humano]])!!}
             {{Form::token()}}
 
             <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                 <div class="form-group">
-                    <label for="nombres">Nombres del Cliente</label>
+                    <label for="nombres">Nombres del Empleado</label>
                     <input type="text" name="nombres"  value="{{$humano->nombres}}" class="form-control" >
                 </div>
             </div>
             <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                 <div class="form-group">
-                    <label for="apellidos">Apellidos del Cliente</label>
+                    <label for="apellidos">Apellidos del Empleado</label>
                     <input type="text" name="apellidos" value="{{$humano->apellidos}}" class="form-control" >
                 </div>
             </div>
@@ -58,8 +58,8 @@
             </div>
             <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                 <div class="form-group">
-                    <label for="telefono">Telefono del Cliente</label>
-                    <input type="number" step="any" min="0" name="telefono" value="{{$humano->telefono}}" class="form-control" placeholder="Telefono del Cliente ...">
+                    <label for="telefono">Telefono del Empleado</label>
+                    <input type="number" step="any" min="0" name="telefono" value="{{$humano->telefono}}" class="form-control" placeholder="Telefono del Empleado ...">
                 </div>
             </div>
             <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
