@@ -30,10 +30,15 @@ class ReservaController extends Controller
     public function store(reservaFormRequest $request) //funcion para almacenar en BD
     {
         $reserva = new reserva;
-        $reserva->nombre_reserva = $request->get('nombre_reserva');
-        $reserva->descripcion = $request->get('descripcion');
-        $reserva->stock = $request->get('stock');
-        $reserva->precio_venta = $request->get('precio_venta');
+        $reserva->id_habitacion = $request->get('id_habitacion');
+        $reserva->id_cliente = $request->get('id_cliente');
+        $reserva->id_empleado = $request->get('id_empleado');
+        $reserva->fecha_de_reserva = $request->get('fecha_de_reserva');
+        $reserva->fecha_de_ingreso = $request->get('fecha_de_ingreso');
+        $reserva->fecha_de_salida = $request->get('fecha_de_salida');
+        $reserva->costo_total = $request->get('costo_total');
+        $reserva->estado_de_reserva = $request->get('estado_de_reserva');
+        $reserva->notas_de_reserva = $request->get('notas_de_reserva');
         $reserva->save();
         return Redirect('reserva');
     }
@@ -54,7 +59,7 @@ class ReservaController extends Controller
     public function destroy($id) //para eliminar un objeto
     {
         $reserva = reserva::findOrFail($id);
-        $reserva->eliminado = '0';
+        $reserva->estado_de_reserva = 'Cancelado';
         $reserva->update();
         return Redirect('reserva');
     }
