@@ -2,7 +2,7 @@
 @section ('contenido')
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <h3> Editar Producto : {{$tipohabitacion->nombredeltipo}}</h3>
+            <h3> Editar tip de habitacion : {{$tipohabitacion->nombredeltipo}}</h3>
             @if (count($errors)>0)
             <div class="alert alert-danger">
                 <ul>
@@ -14,7 +14,7 @@
             @endif
 
 
-            {!!Form::model($tipohabitacion,['method'=>'PATCH','route'=>['tipohabitacion.update',$tipohabitacion->id_tipohabitacion]])!!}
+            {!!Form::model($tipohabitacion,['method'=>'PATCH','route'=>['tipohabitacion.update',$tipohabitacion->id_tipodehabitacion]])!!}
             {{Form::token()}}
 
             <div class="form-group">

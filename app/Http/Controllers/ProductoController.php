@@ -52,7 +52,7 @@ class ProductoController extends Controller
     {
         $produto = Producto::findOrFail($id);
         $produto->update($request->all());
-        return Redirect('producto');
+        return Redirect('producto'); 
     }
     public function destroy($id) //para eliminar un objeto
     {
