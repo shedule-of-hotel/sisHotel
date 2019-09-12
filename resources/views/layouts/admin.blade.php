@@ -87,12 +87,12 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
-                <span>Habiraciones</span>
+                <span>Habitaciones</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{asset('/tipohabitacion')}}"><i class="fa fa-circle-o"></i> Tipos de Habiracion</a></li>
-                <li><a href="{{asset('/tipohabitacion')}}"><i class="fa fa-circle-o"></i> Habiraciones</a></li>
+                <li><a href="{{asset('/tipohabitacion')}}"><i class="fa fa-circle-o"></i> Tipos de Habitacion</a></li>
+                <li><a href="{{asset('/habitacion')}}"><i class="fa fa-circle-o"></i> Habitaciones</a></li>
               </ul>
             </li>
             
