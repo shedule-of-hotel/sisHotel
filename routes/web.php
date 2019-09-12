@@ -18,4 +18,5 @@ Route::resource('producto', 'ProductoController');
 Route::resource('tipohabitacion', 'TipohabController');
 Route::resource('cliente', 'ClienteController');
 Route::resource('empleado', 'EmpleadoController');
+Route::resource('reserva', 'ReservaController');
 

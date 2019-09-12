@@ -104,7 +104,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{asset('/tipohabitacion')}}"><i class="fa fa-circle-o"></i> Consumos de clientes</a></li>
-                <li><a href="{{asset('/tipohabitacion')}}"><i class="fa fa-circle-o"></i> Reservas</a></li>
+                <li><a href="{{asset('/reserva')}}"><i class="fa fa-circle-o"></i> Reservas</a></li>
               </ul>
             </li>
             <li class="treeview">
