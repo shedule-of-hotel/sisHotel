@@ -25,7 +25,7 @@
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="/" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>S</b>H</span>
           <!-- logo for regular state and mobile devices -->
@@ -63,7 +63,7 @@
                   <li class="user-footer">
                     
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Cerrar</a>
+                      <a href="{{url('/logout')}}" class="btn btn-default btn-flat">Cerrar</a>
                     </div>
                   </li>
                 </ul>

@@ -14,7 +14,9 @@ use DB; //usar la base de datos
 class ProductoController extends Controller
 {
     public function __constructor() //creamos el constructor
-    { }
+    { 
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
         if ($request) {
