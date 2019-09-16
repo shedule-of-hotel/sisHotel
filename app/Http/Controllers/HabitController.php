@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class HabitController extends Controller
 {
     //
-    public function __constructor()
+    public function __construct()
     { 
         $this->middleware('auth');
     }

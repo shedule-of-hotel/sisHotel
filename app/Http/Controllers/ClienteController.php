@@ -10,8 +10,8 @@ use DB; //usar la base de datos
 
 class ClienteController extends Controller
 {
-    public function __constructor() //creamos el constructor
-    { 
+    public function __construct()
+    {
         $this->middleware('auth');
     }
     public function index(Request $request)

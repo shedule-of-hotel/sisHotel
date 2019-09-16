@@ -10,7 +10,7 @@ use DB; //usar la base de datos
 
 class ReservaController extends Controller
 {
-    public function __constructor() //creamos el constructor
+    public function __construct() //creamos el constructor
     { 
         $this->middleware('auth');
     }
