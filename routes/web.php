@@ -19,4 +19,9 @@ Route::resource('tipohabitacion', 'TipohabController');
 Route::resource('cliente', 'ClienteController');
 Route::resource('empleado', 'EmpleadoController');
 Route::resource('reserva', 'ReservaController');
+Route::resource('habitacion', 'HabitController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
