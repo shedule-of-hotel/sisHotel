@@ -31,7 +31,7 @@ class Kernel extends HttpKernel
             \AguaymantoHotel\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
-            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+            // \Illuminate\Session\Middleware\AuthenticateSession::class,//esta linea estaba comentada .... creo que es la que se encarga de evitar que ingrese sin loguearse
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \AguaymantoHotel\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
