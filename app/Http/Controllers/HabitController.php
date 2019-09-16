@@ -8,7 +8,9 @@ class HabitController extends Controller
 {
     //
     public function __constructor()
-    { }
+    { 
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
         if ($request) {

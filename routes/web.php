@@ -12,11 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');//->name('vistaindex');
 });
-Route::resource('producto', 'ProductoController');
-Route::resource('tipohabitacion', 'TipohabController');
-Route::resource('cliente', 'ClienteController');
-Route::resource('empleado', 'EmpleadoController');
-Route::resource('reserva', 'ReservaController');
+Route::resource('producto', 'ProductoController');//->name('vistaproducto');
+Route::resource('tipohabitacion', 'TipohabController');//->name('vistatipodehabitacion');
+Route::resource('cliente', 'ClienteController');//->name('vistacliente');
+Route::resource('empleado', 'EmpleadoController');//->name('vistaempleado');
+Route::resource('reserva', 'ReservaController');//->name('vistareserva');
+Route::resource('compras', '---');//->name('vistacompras');
+Route::resource('detalledecompra', '---');//->name('vistadetalledecompra');
+Route::resource('comprobante', '---');//->name('vistacomprobante');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
