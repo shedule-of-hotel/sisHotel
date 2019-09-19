@@ -26,8 +26,10 @@
                         <td>{{ $hab->estado}}</td>
                         <td>
                         <a href="{{URL::action('HabitController@edit',$hab->id_habitacion)}}"><button class="btn btn-info">Editar</button></a>
+                        {{-- <a href="" data-target="#modal-delete-{{$hab->id_habitacion}}" data-toggle="modal"><button class="btn btn-danger">Estado</button></a> --}}
                         </td>
                     </tr>
+                    {{-- @include('Sistema.Habitacion.modal') --}}
                 @endforeach
            </table> 
         </div>

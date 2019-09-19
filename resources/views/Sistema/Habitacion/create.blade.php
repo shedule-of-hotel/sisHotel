@@ -19,17 +19,21 @@
 
             <div class="form-group">
                 <label for="nombre_n_habitacion">Nombre de habitacion</label>
-                <input type="text" name="nombre_n_habitacion" class="form-control" placeholder="Nombre del tipo ...">
+                <input type="text" name="nombre_n_habitacion" class="form-control" placeholder="Nombre ">
             </div>
 
             <div class="form-group">
                 <label for="id_tipodehabitacion">Tipo</label>
-                <input type="text" name="id_tipodehabitacion" class="form-control" placeholder="Tipo ...">
+                <select name="id_tipodehabitacion" class="form-control">
+                    @foreach ($nombredeltipo as $tipo)
+                <option value="{{$tipo->id_tipodehabitacion}}">{{$tipo->nombredeltipo}}</option> 
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="estado">Estado</label>
-                <input type="text" name="estado" class="form-control" placeholder="Estado">
+                {{-- <label for="estado">Estado</label> --}}
+                <input type="hidden" name="estado" value="Activo" class="form-control" placeholder="Estado">
             </div>
 
             <div class="form-group">

@@ -14,7 +14,7 @@
             @endif
 
 
-            {!!Form::model($habitacion,['method'=>'PATCH','route'=>['habitacion.update',$habitacion->id_habitacion]])!!}
+            {!!Form::model($habitacion,['method'=>'PATCH','route'=>['habitacion.update',$habitacion->id_habitacion],'files'=>'true'])!!}
             {{Form::token()}}
 
             <div class="form-group">
@@ -24,12 +24,25 @@
 
             <div class="form-group">
                 <label for="id_tipodehabitacion">Tipo</label>
-                <input type="text" name="id_tipodehabitacion" class="form-control" value="{{$habitacion->tipohabitacion}}" placeholder="Tipo ...">
+                <select name="id_tipodehabitacion" class="form-control">
+                    @foreach ($nombredeltipo as $tipo)
+                    @if ($tipo->id_tipodehabitacion==$habitacion->id_tipodehabitacion)
+                <option value="{{$tipo->id_tipodehabitacion}}"selected>{{$tipo->nombredeltipo}}</option> 
+                @else
+                <option value="{{$tipo->id_tipodehabitacion}}">{{$tipo->nombredeltipo}}</option> 
+                @endif
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="estado">Estado</label>
-                <input type="text" name="estado" class="form-control" placeholder="Estado">
+                <select name="estado" class="form-control">    
+                <option value="Activo"selected>Activo</option> 
+                <option value="Ocupado">Ocupado</option> 
+                <option value="Mantenimento">Mantenimento</option> 
+                <option value="Inhabilitadto">Inhabilitadto</option> 
+                </select>
             </div>
 
             <div class="form-group">

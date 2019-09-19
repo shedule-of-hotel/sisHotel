@@ -13,7 +13,7 @@ class HabitController extends Controller
 {
     //
     public function __construct()
-    { 
+    {
         $this->middleware('auth');
     }
     public function index(Request $request)
@@ -31,14 +31,15 @@ class HabitController extends Controller
     }
     public function create()
     {
-        return view('Sistema.Habitacion.create');
+        $tipohabitacion = DB::table('tipodehabitacion')->get();
+        return view('Sistema.Habitacion.create', ["nombredeltipo" => $tipohabitacion]);
     }
     public function store(HabitFormRequest $request)
     {
         $habitacion = new Habitacion();
         $habitacion->nombre_n_habitacion = $request->get('nombre_n_habitacion');
         $habitacion->id_tipodehabitacion = $request->get('id_tipodehabitacion');
-        $habitacion->estado = 'Activo';
+        $habitacion->estado = $request->get('estado');
         $habitacion->save();
         return Redirect('habitacion');
     }
@@ -48,7 +49,8 @@ class HabitController extends Controller
     }
     public function edit($id)
     {
-        return view("Sistema.habitacion.edit", ["habitacion" => Habitacion::findOrFail($id)]);
+        $tipohabitacion = DB::table('tipodehabitacion')->get();
+        return view("Sistema.habitacion.edit", ["habitacion" => Habitacion::findOrFail($id)], ["nombredeltipo" => $tipohabitacion]);
     }
     public function update(HabitFormRequest $request, $id)
     {
@@ -56,11 +58,11 @@ class HabitController extends Controller
         $habitacion->update($request->all());
         return Redirect('habitacion');
     }
-    public function destroy($id) //para eliminar un objeto
+    public function destroy(HabitFormRequest $request, $id) //para eliminar un objeto
     {
         $habitacion = Habitacion::findOrFail($id);
-        $habitacion->eliminado = '0';
-        $habitacion->update();
-        return Redirect('tipohabitacion');
+
+        $habitacion->update($request->all());
+        return Redirect('habitacion');
     }
 }
