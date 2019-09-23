@@ -37,11 +37,28 @@
 
             <div class="form-group">
                 <label for="estado">Estado</label>
-                <select name="estado" class="form-control">    
-                <option value="Activo"selected>Activo</option> 
+                <select name="estado" class="form-control"> 
+                    @if ($habitacion->estado=='Activo')
+                        <option value="Activo" selected>Activo</option> 
                 <option value="Ocupado">Ocupado</option> 
-                <option value="Mantenimento">Mantenimento</option> 
-                <option value="Inhabilitadto">Inhabilitadto</option> 
+                <option value="Mantenimento">Manteniminto</option> 
+                <option value="Inhabilitadto">Inhabilitado</option> 
+                    @elseif ($habitacion->estado=='Ocupado')
+                        <option value="Activo">Activo</option> 
+                <option value="Ocupado" selected>Ocupado</option> 
+                <option value="Mantenimento">Manteniminto</option> 
+                <option value="Inhabilitadto">Inhabilitado</option> 
+                    @elseif ($habitacion->estado=='Inhabilitado')
+                        <option value="Activo">Activo</option> 
+                <option value="Ocupado">Ocupado</option> 
+                <option value="Mantenimento">Manteniminto</option> 
+                <option value="Inhabilitadto" selected>Inhabilitado</option>
+                    @else 
+                    <option value="Activo">Activo</option> 
+                <option value="Ocupado">Ocupado</option> 
+                <option value="Mantenimento" selected>Manteniminto</option> 
+                <option value="Inhabilitadto">Inhabilitado</option>
+                    @endif 
                 </select>
             </div>
 
