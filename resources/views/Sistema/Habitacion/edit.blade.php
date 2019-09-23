@@ -41,22 +41,22 @@
                     @if ($habitacion->estado=='Activo')
                         <option value="Activo" selected>Activo</option> 
                 <option value="Ocupado">Ocupado</option> 
-                <option value="Mantenimento">Mantenimiento</option> 
+                <option value="Mantenimiento">Mantenimiento</option> 
                 <option value="Inhabilitado">Inhabilitado</option> 
                     @elseif ($habitacion->estado=='Ocupado')
                         <option value="Activo">Activo</option> 
                 <option value="Ocupado" selected>Ocupado</option> 
-                <option value="Mantenimento">Mantenimiento</option> 
+                <option value="Mantenimiento">Mantenimiento</option> 
                 <option value="Inhabilitado">Inhabilitado</option> 
                     @elseif ($habitacion->estado=='Inhabilitado')
                         <option value="Activo">Activo</option> 
                 <option value="Ocupado">Ocupado</option> 
-                <option value="Mantenimento">Mantenimiento</option> 
+                <option value="Mantenimiento">Mantenimiento</option> 
                 <option value="Inhabilitado" selected>Inhabilitado</option>
                     @else 
                     <option value="Activo">Activo</option> 
                 <option value="Ocupado">Ocupado</option> 
-                <option value="Mantenimento" selected>Mantenimiento</option> 
+                <option value="Mantenimiento" selected>Mantenimiento</option> 
                 <option value="Inhabilitado">Inhabilitado</option>
                     @endif 
                 </select>
