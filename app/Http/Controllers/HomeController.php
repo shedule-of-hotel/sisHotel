@@ -35,5 +35,5 @@ class HomeController extends Controller
 
         $Habitaciones = $Habitaciones->get();
         return view('layouts.index', ["Habitaciones" => $Habitaciones]);
-    }
+    }    
 }

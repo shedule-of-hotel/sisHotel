@@ -10,9 +10,27 @@
 
 
         @foreach ($Habitaciones as $hab)
+        <?php
+            $classe="info-box-icon bg-aqua";
+            $estado =$hab->estado;
+            switch ($estado) {            
+                case "Activo":
+                    $classe="info-box-icon bg-aqua";
+                    break;
+                case "Ocupado":
+                    $classe="info-box-icon bg-green";
+                    break;
+                case "Mantenimiento":
+                    $classe="info-box-icon bg-yellow";
+                    break;
+                case "Inhabilitado":
+                    $classe="info-box-icon bg-red";
+                    break;
+            }
+        ?>
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
+            <span class="{{$classe}}"><i class="fa fa-bed"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-number">{{$hab->nombre_n_habitacion}}</span>
