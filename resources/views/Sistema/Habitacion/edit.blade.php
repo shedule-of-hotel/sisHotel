@@ -56,8 +56,8 @@
                     @else 
                     <option value="Activo">Activo</option> 
                 <option value="Ocupado">Ocupado</option> 
-                <option value="Mantenimento" selected>Manteniminto</option> 
-                <option value="Inhabilitadto">Inhabilitado</option>
+                <option value="Mantenimento" selected>Mantenimiento</option> 
+                <option value="Inhabilitado">Inhabilitado</option>
                     @endif 
                 </select>
             </div>
