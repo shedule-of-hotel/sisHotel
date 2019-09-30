@@ -29,6 +29,7 @@ class ProductoFormRequest extends FormRequest
             'descripcion'=>'required|max:256',
             'stock'=>'required',
             'precio_venta'=>'required',
+            'imagen'=> 'required',
         ];
     }
 }

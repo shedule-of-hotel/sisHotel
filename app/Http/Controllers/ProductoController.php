@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use AguaymantoHotel\Http\Requests; // esto no se creo automaitcamente
 use AguaymantoHotel\Producto; //usamos el nombre de la aplicacion para llamar al modelo
 use Illuminate\Support\facades\redirecf; //hacemos referencia a Redirecf para hacer algunas redirecciones   
+use Illuminate\Support\facades\Input; //hacemos referencia a Input para subir imagenes
 use AguaymantoHotel\Http\Requests\ProductoFormRequest; //hacemos referencia a FormulariodeREquerimientos
 use DB; //usar la base de datos
 
@@ -34,11 +35,21 @@ class ProductoController extends Controller
     }
     public function store(ProductoFormRequest $request) //funcion para almacenar en BD
     {
+        $imagenName="";
+
         $producto = new Producto;
         $producto->nombre_producto = $request->get('nombre_producto');
         $producto->descripcion = $request->get('descripcion');
         $producto->stock = $request->get('stock');
         $producto->precio_venta = $request->get('precio_venta');
+
+        if($request->hasFile('imagen')){
+            $file=$request->file('imagen');
+            $imagenName=time().$file->getClientOriginalName();
+            $file->move(public_path().'/imagenes/productos/',$imagenName);
+        }
+
+        $producto->imagen = $imagenName;
         $producto->save();
         return Redirect('producto');
     }
@@ -52,8 +63,22 @@ class ProductoController extends Controller
     }
     public function update(ProductoFormRequest $request, $id) // funcion para actualizar
     {
-        $produto = Producto::findOrFail($id);
-        $produto->update($request->all());
+        $producto = Producto::findOrFail($id);
+        $imagenName="";
+
+        $producto->nombre_producto = $request->get('nombre_producto');
+        $producto->descripcion = $request->get('descripcion');
+        $producto->stock = $request->get('stock');
+        $producto->precio_venta = $request->get('precio_venta');
+
+        if($request->hasFile('imagen')){
+            $file=$request->file('imagen');
+            $imagenName=time().$file->getClientOriginalName();
+            $file->move(public_path().'/imagenes/productos/',$imagenName);
+        }
+
+        $producto->imagen = $imagenName;
+        $producto->save();
         return Redirect('producto'); 
     }
     public function destroy($id) //para eliminar un objeto

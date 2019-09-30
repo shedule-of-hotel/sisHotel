@@ -14,7 +14,7 @@
             @endif
 
 
-            {!!Form::open(array('url'=>'/producto','method'=>'POST','autocomplete'=>'off'))!!}
+            {!!Form::open(array('url'=>'/producto','method'=>'POST','autocomplete'=>'off','enctype'=>'multipart/form-data'))!!}
             {{Form::token()}}
 
             <div class="form-group">
@@ -35,6 +35,11 @@
             <div class="form-group">
                 <label for="precio_venta">Precio de Venta del Producto</label>
                 <input type="number" step="any" min="0" name="precio_venta" class="form-control" placeholder="Precio de Venta ...">
+            </div>
+
+            <div class="form-group">
+                <label for="precio_venta">Imagen</label>
+                <input type="file" name="imagen" accept="image/*" class="form-control">
             </div>
 
             <div class="form-group">

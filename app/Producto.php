@@ -22,6 +22,7 @@ class Producto extends Model
         'descripcion',
         'stock',
         'precio_venta',
+        'imagen',
     ];
 
     // los campos guarder se especifican cuando no deseas que se agreguen al modelo
