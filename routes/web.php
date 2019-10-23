@@ -22,7 +22,7 @@ Route::resource('tipohabitacion', 'TipohabController'); //->name('vistatipodehab
 Route::resource('cliente', 'ClienteController'); //->name('vistacliente');
 Route::resource('empleado', 'EmpleadoController'); //->name('vistaempleado');
 Route::resource('reserva', 'ReservaController'); //->name('vistareserva');
-Route::resource('compras', '---'); //->name('vistacompras');
+Route::resource('compras', 'CompraController'); //->name('vistacompras');
 Route::resource('detalledecompra', '---'); //->name('vistadetalledecompra');
 Route::resource('comprobante', '---'); //->name('vistacomprobante');
 
